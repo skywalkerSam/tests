@@ -1,6 +1,7 @@
-// binarySearch, returns the index on the `actual` array...
+// Binary Search
 
-let theArray: string[] | number[] = [
+// example array
+export const theArray: string[]= [
   "Sam",
   "Starboy",
   "Tris",
@@ -26,32 +27,33 @@ let theArray: string[] | number[] = [
   "...",
 ];
 
-// sort
-let sortedArray: string[] | number[] = theArray
+// sorted array
+export const sortedArray: string[]= theArray
   .map((value) => value.toLowerCase())
   .sort();
 
-// for testing
-export function sortThis(arr) {
+/** lowercase + sort */
+export function sortThis(arr: string[]) {
   return arr.map((value) => value.toLowerCase()).sort();
 }
 
-export function binarySearch(arr, target, start = 0, end = arr.length - 1) {
-  sortThis(arr); //for testing
+/** binary search algorithm */
+export function binarySearch(arr: string[], target: string, start = 0, end = arr.length - 1) {
+  // sortThis(arr); //for testing
 
-  let pointerIndex: number = Math.floor((start + end) / 2);
-  let indexValue: number = arr[pointerIndex];
-  console.log(start, end, pointerIndex, indexValue);
+  const pointerIndex: number = Math.floor((start + end) / 2);
+  const indexValue: string = arr[pointerIndex];
+  // console.log(start, end, pointerIndex, indexValue);
 
   // failed
   if (start > end) {
-    console.log("\nNot Found!!");
+    // console.log("\n404 - not found!");
     return -1;
   }
 
   // found
   if (indexValue === target) {
-    console.log(`${target} found at ${pointerIndex} :)`);
+    // console.log(`\n${target} found at '${pointerIndex}' :)\n`);
     return pointerIndex;
   }
 
@@ -66,5 +68,7 @@ export function binarySearch(arr, target, start = 0, end = arr.length - 1) {
   }
 }
 
-console.log(binarySearch(theArray, "fml"));
-// console.log(theArray)
+if (import.meta.main) {
+  console.log(binarySearch(sortedArray, "fml"));
+  // console.log(theArray)
+}
