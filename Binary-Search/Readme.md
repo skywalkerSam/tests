@@ -20,4 +20,8 @@ deno bench benchmark.ts
 
 <img src="./Resources/memes/theBiggestSin.jpg" alt="*theBiggestSin" width=450>
 
+## Additional Resources
+
+- [Introduction to Benchmarking w/ DENO](https://www.youtube.com/watch?v=_pWA4rbzvIg&t=321s)
+
 Until next time.)
