@@ -1,6 +1,6 @@
-// The Fisher Yates Shuffle Algorithm with TypeScript
+// Fisher Yates shuffle algorithm implementation w/ TypeScript
 
-let theArray: string[] = [
+export const theArray: string[] = [
   "Sam",
   "Starboy",
   "Tris",
@@ -24,30 +24,25 @@ let theArray: string[] = [
   "Die",
   "Already",
   "...",
-].sort();
-
-let shuffledArray: string[] = [];
+];
 
 // let fisherCalled: boolean = true;
-export function fisherYates(someArray) {
+export function fisherYates(arr: string[]) {
+  const shuffledArr: string[] = [];
   const min: number = 0;
-  let max: number = theArray.length;
+  let max: number = arr.length;
   let randomIndex: number = 0;
   for (max >= min; max--; ) {
     randomIndex = Math.floor(Math.random() * (max - min + 1)) + min;
-    shuffledArray.push(theArray[randomIndex]);
-    theArray.splice(randomIndex, 1);
+    shuffledArr.push(arr[randomIndex]);
+    arr.splice(randomIndex, 1); // duplicates
     // console.log(min, max, randomIndex);
     // console.log(theArray, shuffledArray);
   }
-
-  return shuffledArray;
+  // console.log(shuffledArr)
+  return shuffledArr;
 }
 
-// console.log(theArray)
-// console.log(shuffledArray);
-// fisherYates();
-// console.log(shuffledArray)
-// console.log(theArray);
-
-console.log(fisherYates(theArray));
+if (import.meta.main) {
+  console.log(fisherYates(theArray));
+}
